@@ -3,37 +3,32 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
+bitset<1000>bs;
+vector<int>primes;
 
-void sieve(int n)
+void sieve(long long upper_bound)
 {
-    ll int prime[n+3];
-    memset(prime,0,sizeof(prime));
-    for(int i = 2; i*i <= n; i++)
+    bs.set();
+    bs[0] = bs[1] = 0;
+    primes.push_back(2);
+    for(ll i =3; i<= upper_bound +1; i+=2)
     {
-        if(prime[i] == 0)
+        if(bs[i] == 1)
         {
-            for(int j = i*i; j<n; j+=i)
+            for(ll j = i*i; j<= upper_bound+1; j+=i)
             {
-                prime[j] = 1;
+                bs[j] = 0;
             }
+            primes.push_back((int) i);
         }
     }
-    for(int i = 2; i<= n; i++)
-    {
-        if(prime[i] == 0)
-        {
-            cout<<i<<" ";
-        }
-    }
-    cout<<endl;
+    cout<<bs<<" ";
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    ll int n;
-    cin>>n;
-    sieve(n);
+    
+    sieve(1000);
     return 0;
 }
