@@ -1,0 +1,36 @@
+// BIJON SAHA DURJOY
+//    SUST_SWE_19
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+const int N = 1e8 + 10;
+bitset<N> isPrime;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    isPrime[0] = isPrime[1] = true;
+
+    vector<int> v;
+    v.push_back(2);
+    for (int i = 3; i <= N; i+= 2)
+    {
+        if (isPrime[i] == false)
+        {
+            v.push_back(i);
+
+            for (int j = i + i; j <= N; j += i)
+            {
+                isPrime[j] = true;
+            }
+        }
+    }
+    for (int i = 0; i < v.size(); i += 100)
+    {
+        cout << v[i] << endl;
+    }
+    return 0;
+}
