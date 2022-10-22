@@ -1,0 +1,7 @@
+    1.	n = rows [W]
+    2.	D ^ (0) = W
+    3.	For k = 1 to n
+    4.	Do for I = 1 to n 
+    5.	Do for j = 1 to n 
+    6.	d (ij) ^ (k) = min (d(ij) ^ (k-1), d (ik) ^ (k-1) + d(kj) ^ (k-1))
+    7.	return D ^ (n)
