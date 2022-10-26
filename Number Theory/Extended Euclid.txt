@@ -1,0 +1,5 @@
+Extended-Euclid(m,n)
+if(n=0) return (m,1,0)
+(d',a',b') = Extended-Euclid(n, m mod n)
+(d,a,b) = (d',a',b' - floor((a/b)b')
+return (d,a,b)
