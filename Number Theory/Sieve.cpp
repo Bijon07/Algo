@@ -3,37 +3,40 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-
-void sieve(int n)
+vector<int>isPrime;
+void seive(ll n)
 {
-    ll int prime[n+3];
-    memset(prime,0,sizeof(prime));
-    for(int i = 2; i*i <= n; i++)
+    ll primes[n+3];
+    memset(primes,0,sizeof(primes));
+    for(ll i=2; i*i<=n; i++)
     {
-        if(prime[i] == 0)
+        if(primes[i] == 0)
         {
-            for(int j = i*i; j<n; j+=i)
+            for(ll j=i*i; j<=n; j+=i)
             {
-                prime[j] = 1;
+                primes[j] = 1;
             }
         }
     }
-    for(int i = 2; i<= n; i++)
+    for(ll i =0; i<=n; i++)
     {
-        if(prime[i] == 0)
+        if(primes[i] == 0)
         {
-            cout<<i<<" ";
+            cout<<i<<"-> "<<"Prime"<<endl;
+        }
+        else
+        {
+            cout<<i<<"-> "<<"Not Prime"<<endl;
         }
     }
-    cout<<endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll int n;
-    cin>>n;
-    sieve(n);
+    ll int m;
+    cin>>m;
+    seive(m);
     return 0;
 }
