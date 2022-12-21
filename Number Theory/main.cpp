@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-bitset<1000>bs;
+bitset<100>bs;
 vector<int>primes;
 
 void sieve(long long upper_bound)
@@ -22,13 +22,13 @@ void sieve(long long upper_bound)
             primes.push_back((int) i);
         }
     }
-    cout<<bs<<" ";
+    cout<<bs<<' ';
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    sieve(1000);
+    sieve(100);
     return 0;
 }
