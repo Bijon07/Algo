@@ -3,31 +3,35 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-vector<int>isPrime;
-void seive(ll n)
+
+#define Max 32000
+vector<int>primes;
+
+void seive()
 {
-    ll primes[n+3];
-    memset(primes,0,sizeof(primes));
-    for(ll i=2; i*i<=n; i++)
+    bool isprimes[Max];
+    memset(isprimes,true,sizeof(isprimes));
+    for(int i =3; i*i<=Max; i+=2)
     {
-        if(primes[i] == 0)
+        if(isprimes[i] == true)
         {
-            for(ll j=i*i; j<=n; j+=i)
+            for(int j =i*i; j<=Max; j+=i)
             {
-                primes[j] = 1;
+                isprimes[j]= false;
             }
         }
     }
-    for(ll i =0; i<=n; i++)
+    primes.push_back(2);
+    for(int i =3; i<=Max; i+=2)
     {
-        if(primes[i] == 0)
+        if(isprimes[i] == true)
         {
-            cout<<i<<"-> "<<"Prime"<<endl;
+            primes.push_back(i);
         }
-        else
-        {
-            cout<<i<<"-> "<<"Not Prime"<<endl;
-        }
+    }
+    for(int i=0; i<10 ;i++)
+    {
+        cout<<primes[i]<<endl;
     }
 }
 int main()
@@ -35,8 +39,6 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll int m;
-    cin>>m;
-    seive(m);
+    seive();
     return 0;
 }
