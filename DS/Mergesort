@@ -1,0 +1,6 @@
+MergeSort(A,p,r)
+if(p<r)
+q= (p+r)/2
+Mergesort(A,p,q)
+Mergesort(A,q+1,r)
+Merge(A,p,q,r)
